@@ -6,3 +6,4 @@ tambah teks latihan.txt
 tambah teks latihan.txt
 tambah teks latihan.txt
 tambah teks latihan.txt
+edit isi latihan.txt
