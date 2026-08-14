@@ -1,2 +1,3 @@
 mengubah isi latihan.txt
 manambahkan isi latihan.txt
+mengedit isi latihan.txt
