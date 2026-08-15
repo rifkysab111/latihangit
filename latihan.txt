@@ -10,3 +10,4 @@ edit isi latihan.txt
 edit isi latihan.txt
 edit isi latihan.txt
 edit isi latihan.txt
+revisi latihan.txt
