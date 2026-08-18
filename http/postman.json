@@ -1,0 +1,392 @@
+{
+  "info": {
+    "_postman_id": "ff857ffd-af6f-4746-be52-29dda2d6c32f",
+    "name": "BOSS BATTLE-RIFKY",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57089513",
+    "_collection_link": "https://go.postman.co/collection/57089513-ff857ffd-af6f-4746-be52-29dda2d6c32f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "BAGIAN A",
+      "item": [
+        {
+          "name": "10 produk pertama",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://dummyjson.com/products?limit=10",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "**Mengambil data produk, dari total 194 produk diambil dengan limit 10 melalui query parameter**EndFragment"
+          },
+          "response": []
+        },
+        {
+          "name": "produk ke 21-30",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products?limit=10&skip=20&select=title,price",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "skip",
+                  "value": "20"
+                },
+                {
+                  "key": "select",
+                  "value": "title,price"
+                }
+              ]
+            },
+            "description": "**Karena meminta produk yang ada di tengah-tengah, maka produk dari awal di skip hingga 20 (karena yang diminta dimulai dari 21) dengan memberi limit sebanyak 10 (karena permintaan stop di produk 30)**EndFragment"
+          },
+          "response": []
+        },
+        {
+          "name": "produk mengandung \"phone\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products/search?q=phone",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "phone"
+                }
+              ]
+            },
+            "description": "**Mencari produk mengandung “phone” dilakukan dengan menambahkan variabel “q” ke dalam query parameter untuk memiinta produk berdasarkan kata “phone”, di bagian respon jumlah total dan limit mengikuti hasil dari jumlah keluaran dari variabel “q” yang berperan sebagai key.**"
+          },
+          "response": []
+        },
+        {
+          "name": "semua kategori",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products/category-list",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products",
+                "category-list"
+              ]
+            },
+            "description": "**Meminta data semua kategori tidak perlu query parameter, karena bagian kategori masih bagian dari struktur utama dari sistem itu sendiri, jadi paling optimal menggunakan URL path**"
+          },
+          "response": []
+        },
+        {
+          "name": "produk dalam satu kategori",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products/category/smartphones",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products",
+                "category",
+                "smartphones"
+              ]
+            },
+            "description": "**Melihat semua produk dalam kategori cukup menggunakan URL path saja karena pada dasarnya mereka seperti parents dan child (sudah ada hubungan dari umum ke khusus)**"
+          },
+          "response": []
+        },
+        {
+          "name": "ambil title & price",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products?select=title,price",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "select",
+                  "value": "title,price"
+                }
+              ]
+            },
+            "description": "**Mengelompokkan produk dengan hanya title dan price dilakukan dengan membuat key “select” pada query parameter, dan mengisi value sebagai parameter pencarian dengan notasi sperti “title” dan “price” maka yang muncul pada halaman respon hanya id (memang harus muncul), judul produk, dan harga produk.**"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "BAGIAN B",
+      "item": [
+        {
+          "name": "Buat Produk",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Oppo A96\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://dummyjson.com/products/add",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products",
+                "add"
+              ]
+            },
+            "description": "**Path URL /add, kemudian tambah produk manual lewat json dan inputkan data produk, untuk id sudah otomatis melanjutkan setelah total data (total data awal : 194 + produk baru jadi id produk baru : 195)**"
+          },
+          "response": []
+        },
+        {
+          "name": "Perbarui Harga",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"price\": 25.5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://dummyjson.com/products/1",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products",
+                "1"
+              ]
+            },
+            "description": "**Merubah harga lewat URL path /product/\\[id produk\\], setelah diganti manual lewat raw json maka bagian respon juga ikut merubah tapi hanya bagian harga karena yang diminta di json adalah “harga”**"
+          },
+          "response": []
+        },
+        {
+          "name": "Ganti produk seluruhnya",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"BMW Car\",\r\n    \"price\": 399.7,\r\n    \"discountPercentage\": 3.5,\r\n    \"stock\": 5,\r\n    \"rating\": 4.8,\r\n    \"images\": [\r\n        \"https://cdn.dummyjson.com/product-images/auto/bmw-car/1.webp\"\r\n    ],\r\n    \"thumbnail\": \"https://cdn.dummyjson.com/product-images/auto/bmw-car/thumbnail.webp\",\r\n    \"description\": \"The BMW M3 Competition is a high-performance luxury sports sedan. It uses a 3.0-liter twin-turbo inline-six engine that makes 503 to 523 horsepower and 479 lb-ft of torque. It goes from 0 to 100 km/h in 3.5 to 3.9 seconds, using rear-wheel drive or M xDrive all-wheel drive.\",\r\n    \"brand\": \"BMW Indonesia\",\r\n    \"category\": \"auto\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://dummyjson.com/products/4",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products",
+                "4"
+              ]
+            },
+            "description": "**Hampir sama dengan PATCH, bedanya ketika melakukan penggantian data produk, PUT dilakukan secara menyeluruh**"
+          },
+          "response": []
+        },
+        {
+          "name": "Hapus produk",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/products/3?deletedOn=",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "products",
+                "3"
+              ],
+              "query": [
+                {
+                  "key": "deletedOn",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "**Dengan URL path /products/\\[id produk\\] dan ditambah key deletedOn, bisa lewat query parameter atau langsung di URL dengan tambahan setelah \\[id produk\\] lanjut ?deletedOn=**"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "BAGIAN C",
+      "item": [
+        {
+          "name": "Login & ambil token Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const jsonData = JSON.parse(responseBody);\r\npm.environment.set(\"token\", jsonData.accessToken);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Etag",
+                "value": "siap010"
+              },
+              {
+                "key": "Referer",
+                "value": "https://httpbin.org"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"emilys\",\r\n    \"password\": \"emilyspass\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://dummyjson.com/auth/login",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Pertama login dulu dengan add user melalui raw json dengan method POST, kemudian dapatkan token.\n\nKedua buat script untuk mengirimkan access token ke environtment."
+          },
+          "response": []
+        },
+        {
+          "name": "Token otomatis",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://dummyjson.com/auth/me",
+              "protocol": "https",
+              "host": [
+                "dummyjson",
+                "com"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            },
+            "description": "Pertama akses informasi user lewat bearer token dan copy paste manual token dari bagian login/add user\n\nKedua adalah otomatiis tanpa copy token, cukup gunakan {{token}} di kolom token bearer untuk memanggil token yang sudah dikrimkan bagian login ke environtment."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

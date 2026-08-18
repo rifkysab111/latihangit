@@ -1,16 +1,9 @@
-# PORTOFOLIO MINGGU 1-2
+# PENJELASAN SKKRIP BASH
 
-Berisi kumpulan tugas dari minggu 1 dan minggu 2
+fungsi skrip yang ada di repo ini:
 
-repo ini berisi 3 folder dan 1 file readme :
-
-Folder skrip berisi :
 backup.sh : Skrip untuk melakukan pencadangan otomatis folder `~/latihan/data` ke direktori `~/backup` dengan menambahkan timestamp pada nama foldernya agar tidak saling timpa
 
 info.sh : Skrip untuk menampilkan informasi lingkungan sistem, seperti *user* yang sedang login, status grup *user*, letak direktori kerja saat ini, dan waktu server
 
 cek.sh : Skrip logika penyeleksian kondisi (if-else) untuk mengecek apakah argumen angka yang diinputkan bilangan GENAP atau GANJIL
-
-Folder http berisi hasil pengujian API yang dilakukan melalui request di postman
-
-Folder docs berisi panduan instalasi dan penggunaan SSH key
